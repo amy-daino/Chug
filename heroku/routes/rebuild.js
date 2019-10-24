@@ -32,8 +32,7 @@ module.exports = (req, res) => {
 		    similarTo
 			}
 		}
-	}
-	`
+	}` 
 
 	takeshape(query).then(result => {
 
