@@ -40,8 +40,7 @@ module.exports = (req, res) => {
 		    }
 		    restaurantsAndBars
 		    servedIn
-		    styled
-			}
+		    style
 		}
 	}`
 
