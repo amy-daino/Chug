@@ -9,30 +9,25 @@ const takeshape = require('../services/takeshape')
 module.exports = (req, res) => {
 
 	// Setup the index.
-	const index = algolia.initIndex('chug');
+	const index = algolia.initIndex('mixedDrinks');
 
 	// Set the query name.
-	var queryName = 'getChugList'
+	var queryName = 'getMixedDrinksList'
 
 	// Set the Query for the content type.
 	var query = `{
 		${queryName} {
 			items {
 				_id
-		    alcoholByVolume
-		    brewery
-		    description
-		    foodPairing
+		    allergies
+		    garnish
+		    ingredients
+		    mainSpirits
 		    name
-		    origin
-		    plant
-		    repeater {
-		      photo
-		    }
-		    similarTo
+		    restaurantsAndBars
 			}
 		}
-	}` 
+	}`
 
 	takeshape(query).then(result => {
 
@@ -49,7 +44,6 @@ module.exports = (req, res) => {
 		_.each(items, item => {
 			var object = item
 			item.objectID = item._id;
-			if (item.photo) item.photoUrl = 'https://images.takeshape.io/' + item.photo.path;
 			list.push(item)
 		})
 

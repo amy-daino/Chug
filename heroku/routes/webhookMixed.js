@@ -24,17 +24,12 @@ module.exports = function(req, res) {
 	var query = ` {
 		${body.data.queryName}(_id: "${body.data.contentId}") {
 			_id
-	    alcoholByVolume
-	    brewery
-	    description
-	    foodPairing
+	    allergies
+	    garnish
+	    ingredients
+	    mainSpirits
 	    name
-	    origin
-	    plant
-	    repeater {
-	      photo
-	    }
-	    similarTo
+	    restaurantsAndBars
 		}
 	}`;
 

@@ -21,8 +21,11 @@ _.each(settings, setting => {
 if (!hasSettings) return process.exit(22);
 
 // Setup the routes.
-app.post('/webhook', require('./routes/webhook'))
-app.get('/rebuild', require('./routes/rebuild'))
+app.post('/webhookDrinks', require('./routes/webhookDrinks'))
+app.post('/webhookMixed', require('./routes/webhookMixed'))
+
+app.get('/rebuildDrinks', require('./routes/rebuildDrinks'))
+app.get('/rebuildMixed', require('./routes/rebuildMixed'))
 
 app.listen(PORT);
 
